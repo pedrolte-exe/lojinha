@@ -6,14 +6,14 @@ export default function Home() {
   
   // Aqui entra o Javascript normal
 
-  let [ carrinho, alteraCarrinho] = useState(0);  // se for ingles, seria setCarrinho
-  let [ precoProduto, alteraPreco] = useState(25);
-  let [ valorTotal, alteraValorTotal] = useState(0);
+  const [ carrinho, alteraCarrinho] = useState(0);  // se for ingles, seria setCarrinho
+  const [ precoProduto, alteraPreco] = useState(25);
+  const [ valorTotal, alteraValorTotal] = useState(0);
 
   
   function manipulaCarrinho( adicionar ){ // é aqui que possibilitamos a manipulação do clique, pra fazer clicar e funcionar
 
-    let novoCarrinho = carrinho;
+    const novoCarrinho = carrinho;  
 
     if(adicionar == true){
       alteraCarrinho( carrinho + 1)
@@ -57,7 +57,8 @@ export default function Home() {
         <img className="" src="https://placehold.co/200/"/>
         <h3 className="text-lime-200 font-bold">Produto modelo </h3>
         <p>
-          R$ {precoProduto},00</p>
+          R$ {precoProduto},00
+        </p>
         <button onClick={()=>manipulaCarrinho(true)} className="bg-lime-400 text-blac mt-5 p-3"> Adicionar ao carrinho </button>
         <br/>
         <button onClick={()=>manipulaCarrinho(false)} className="bg-red-400 text-blac mt-5 p-3"> Remover do Carrinho</button>
