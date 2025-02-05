@@ -13,7 +13,7 @@ export default function Home() {
   
   function manipulaCarrinho( adicionar ){ // é aqui que possibilitamos a manipulação do clique, pra fazer clicar e funcionar
 
-    const novoCarrinho = carrinho;  
+    let novoCarrinho = carrinho;
 
     if(adicionar == true){
       alteraCarrinho( carrinho + 1)
@@ -40,8 +40,14 @@ export default function Home() {
       <p className="p-3 text-lg"> 
       Carrinho: <strong> {carrinho} </strong> Itens 
       </p>
-      <button onClick={()=>limpaCarrinho()}  className="mr-2 bg-yellow-400 text-black mt-5 p-3 mb-3"> Limpar </button>
-      
+
+        {
+        carrinho > 0 ?
+        <button onClick={()=>limpaCarrinho()}  className="mr-2 bg-yellow-400 text-black mt-5 p-3 mb-3"> Limpar </button>
+          :
+          <div></div>
+        }
+
       <button onClick={()=>manipulaPreco()}  className="bg-black text-white mt-5 p-3 mb-3"> Adicionar Cupom </button>
       
       <hr/>
@@ -57,11 +63,17 @@ export default function Home() {
         <img className="" src="https://placehold.co/200/"/>
         <h3 className="text-lime-200 font-bold">Produto modelo </h3>
         <p>
-          R$ {precoProduto},00
-        </p>
+          R$ {precoProduto},00</p>
         <button onClick={()=>manipulaCarrinho(true)} className="bg-lime-400 text-blac mt-5 p-3"> Adicionar ao carrinho </button>
         <br/>
-        <button onClick={()=>manipulaCarrinho(false)} className="bg-red-400 text-blac mt-5 p-3"> Remover do Carrinho</button>
+
+        {
+        carrinho > 0 ?
+          <button onClick={()=>manipulaCarrinho(false)} className="bg-red-400 text-blac mt-5 p-3"> Remover do Carrinho</button>
+          :
+          <div></div>
+        }
+        
       </div>
     </div>
   );

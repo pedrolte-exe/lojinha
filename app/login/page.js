@@ -24,7 +24,6 @@ function Login() {
             {/* <button onClick={()=>manipulaAdmin()} className={"mt-3"+ (admin == true ? "bg-sky-500" : "bg-red-500")+" text-white p-2"}> {admin == false ? <span> Entrar como administrador</span> : <span> Voltar para usuário</span>} </button> */}
         <hr/>
 
-
             {
                 admin == true ? 
                     <div>
