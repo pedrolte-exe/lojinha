@@ -4,15 +4,34 @@ import { useState } from "react";
 
 function Cadastro() {
 
-    const [nome, alteraNome] = useState("");
-    const [erroNome, alteraErroNome] = useState(false);
+    // const [nome, alteraNome] = useState("");
+    // const [senha, alteraSenha] = useState("");
 
-    const [senha, alteraSenha] = useState("");
-    const [confirma, alteraConfirma]= useState("");
-    const [erroSenha, alteraErroSenha] = useState(false);
+    // const [erroNome, alteraErroNome] = useState(false);
+    // const [erroSenha, alteraErroSenha] = useState(false);
+    // const [confirma, alteraConfirma]= useState("");
+
+    const [ usuario, alteraUsuario] = useState({
+        nome: "",
+        senha: "",
+        idade: 0,
+        altura: 1.5
+    });
+
+    function alteraNome(pnome){
+        const u = {
+            nome: pnome,
+            senha: usuario.senha,
+            idade: usuario.idade,
+            altura: usuario.altura
+        }
+        alteraUsuario(u)    
+    }
+
+
 
     function salvar(){
-        console.log("O nome cadastrado é:"+nome);
+        console.log("O nome cadastrado é: "+usuario.nome);
 
         if(nome.length < 5){
             alteraErroNome(true);
@@ -35,7 +54,7 @@ function Cadastro() {
             <hr/>
             
             <p>Digite seu nome:</p>
-            <input  onChange={ (e)=> alteraNome(e.target.value)} value={nome} className="outline"/>
+            <input  onChange={ (e)=> alteraNome(e.target.value)} value={usuario.nome} className="outline"/>
             
             <br/>
 
@@ -49,7 +68,7 @@ function Cadastro() {
             }
 
             <p>Digite sua senha:</p>
-            <input  onChange={ (e)=> alteraSenha(e.target.value)} value={senha} className="outline"/>
+            <input  onChange={ (e)=> alteraSenha(e.target.value)} value={usuario.senha} className="outline"/>
             
             <br/>
            
